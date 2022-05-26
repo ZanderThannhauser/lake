@@ -1,0 +1,15 @@
+
+// comments
+
+let a = (b + b) * 0.5;
+
+let b = 3 * c;
+
+include "more.calc"
+
+let e = f ** 2;
+
+let d = e / e;
+
+
+
