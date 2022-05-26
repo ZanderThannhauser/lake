@@ -1,4 +1,4 @@
 
 struct pqueue;
 
-int parse(const char* input_path, struct pqueue* pqueue);
+int parse(const char* dirpath, int fd, struct pqueue* pqueue);

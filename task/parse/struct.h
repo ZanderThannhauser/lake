@@ -4,6 +4,6 @@
 struct parse_task
 {
 	struct task super;
-	const char* input_path;
+	char* input_path;
 };
 

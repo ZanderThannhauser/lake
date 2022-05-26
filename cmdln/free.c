@@ -1,4 +1,6 @@
 
+#include <stdlib.h>
+
 #include <assert.h>
 
 #include <debug.h>
@@ -7,6 +9,10 @@
 
 void free_cmdln(struct cmdln* flags)
 {
-	TODO;
+	ENTER;
+	
+	free(flags);
+	
+	EXIT;
 }
 

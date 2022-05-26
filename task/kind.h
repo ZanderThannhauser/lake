@@ -4,7 +4,7 @@
 
 enum task_kind
 {
-	tk_error,
+	tk_shutdown,
 	
 	tk_parse,
 	
@@ -12,7 +12,7 @@ enum task_kind
 	
 	tk_evaluate,
 	
-	tk_exit,
+	tk_wake_up,
 	
 	number_of_task_kinds,
 };

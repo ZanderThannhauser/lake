@@ -32,8 +32,6 @@ int main(int argc, char* argv[])
 		?: submit_initial_parse_task(pqueue, flags->input_path)
 		?: tpool_join(tpool);
 	
-	TODO;
-	
 	free_pqueue(pqueue);
 	free_tpool(tpool);
 	free_cmdln(flags);

@@ -15,7 +15,7 @@ void parse_task_print(struct task* super)
 	struct parse_task* const this = (struct parse_task*) super;
 	ENTER;
 	
-	struct rgb color = hsv_to_rgb(M_PI * super->kind / number_of_task_kinds, 1, 1);
+	struct rgb color = hsv_to_rgb(M_PI * tk_parse / number_of_task_kinds, 1, 1);
 	
 	printf(
 		CSI "38;2;%hhu;%hhu;%hhu" "m" // set 256-bit foreground color

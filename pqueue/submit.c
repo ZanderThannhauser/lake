@@ -15,7 +15,7 @@ int pqueue_submit(struct pqueue* this, struct task* task)
 	int error = 0;
 	ENTER;
 	
-	sem_wait(&this->array_lock);
+	sem_wait(this->array_lock);
 	
 	if (this->n + 1 >= this->cap)
 	{
@@ -40,9 +40,9 @@ int pqueue_submit(struct pqueue* this, struct task* task)
 		this->n++;
 	}
 	
-	sem_post(&this->array_lock);
+	sem_post(this->array_lock);
 	
-	sem_post(&this->counter);
+	sem_post(this->counter);
 	
 	EXIT;
 	return error;

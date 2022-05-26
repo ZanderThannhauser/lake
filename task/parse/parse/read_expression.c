@@ -224,8 +224,20 @@ static int read_additive_expression(struct expression** out, struct scanner* sca
 			}
 			
 			case t_subtract:
-				TODO;
+			{
+				struct expression* right = NULL, *new;
+				
+				error = 0
+					?: read_multiplicative_expression(&right, scanner)
+					?: new_binary_expression(&new, bek_subtract, left, right);
+				
+				if (error)
+					free_expresssion(right);
+				else
+					left = new;
+				
 				break;
+			}
 			
 			default:
 				TODO;

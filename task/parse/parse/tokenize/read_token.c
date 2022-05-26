@@ -228,7 +228,7 @@ int read_token(struct scanner* this)
 		
 		// symbols:
 		case s_plus: this->token = t_add; break;
-		case s_minus: TODO; break;
+		case s_minus: this->token = t_subtract; break;
 		case s_asterisk: this->token = t_multiply; break;
 		case s_double_asterisk: this->token = t_exponential; break;
 		case s_slash: this->token = t_divide; break;
@@ -267,7 +267,7 @@ int read_token(struct scanner* this)
 			char
 				*w = this->tokenchars.chars,
 				*r = w + 1,
-				*e = w + this->tokenchars.n - 2;
+				*e = w + this->tokenchars.n - 1;
 			
 			while (r < e)
 				if (*r != '\\')

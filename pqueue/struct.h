@@ -8,6 +8,6 @@ struct pqueue
 	struct task** tasks;
 	size_t n, cap;
 	
-	sem_t array_lock, counter;
+	sem_t* array_lock, *counter;
 };
 

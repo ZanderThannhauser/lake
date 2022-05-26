@@ -1,4 +1,5 @@
 
+#include <stdio.h>
 #include <stdlib.h>
 
 #include <assert.h>
@@ -8,6 +9,10 @@
 #include <debug.h>
 
 #include <memory/smalloc.h>
+
+#include <defines/CSI.h>
+
+#include <misc/ssem_init.h>
 
 #include "struct.h"
 #include "threadargs.h"
@@ -24,9 +29,11 @@ int new_tpool(
 	int error = 0;
 	struct threadargs* threadargs = NULL;
 	pthread_t* threads = NULL;
+	sem_t* print_lock = NULL;
 	ENTER;
 	
 	error = 0
+		?: ssem_init(&print_lock, 0, 1)
 		?: smalloc((void**) &threadargs, sizeof(*threadargs) * number_of_threads)
 		?: smalloc((void**) &threads, sizeof(*threads) * number_of_threads);
 	
@@ -35,8 +42,9 @@ int new_tpool(
 		struct threadargs* args = &threadargs[i];
 		
 		args->pqueue = pqueue;
-		args->id = i;
+		args->id = i + 1;
 		args->verbose = verbose;
+		args->print_lock = print_lock;
 		
 		if (pthread_create(&threads[i], NULL, thread, args))
 		{
@@ -54,7 +62,22 @@ int new_tpool(
 	{
 		this->threadargs = threadargs, threadargs = NULL;
 		this->threads = threads, threads = NULL;
+		
 		this->number_of_threads = number_of_threads;
+		
+		this->print_lock = print_lock, print_lock = NULL;
+		
+		this->has_joined = false;
+		
+		// clear task line
+		#ifdef RELEASE
+		if (verbose)
+		{
+			// Move cursor down the indicated # of rows, to column 1.
+			for (i = 0; i < number_of_threads; i++) putchar('\n');
+			fflush(stdout);
+		}
+		#endif
 		
 		*out = this;
 	}
@@ -65,6 +88,9 @@ int new_tpool(
 		
 		free(threads);
 	}
+	
+	if (print_lock)
+		sem_destroy(print_lock);
 	
 	free(threadargs);
 	

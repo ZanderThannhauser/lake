@@ -1,7 +1,10 @@
 
+#include <stdlib.h>
 #include <stddef.h>
 
 #include <debug.h>
+
+#include <memory/sstrdup.h>
 
 #include <task/parse/new.h>
 #include <task/free.h>
@@ -15,13 +18,21 @@ int submit_initial_parse_task(
 	const char* input_path)
 {
 	int error = 0;
+	char* dup = NULL;
 	ENTER;
 	
 	struct task* task = NULL;
 	
-	error = 0
-		?: new_parse_task(&task, input_path)
-		?: pqueue_submit(pqueue, task);
+	error = sstrdup(&dup, input_path);
+	
+	if (!error)
+		error = new_parse_task(&task, dup);
+	
+	if (error)
+		free(dup);
+	
+	if (!error)
+		error = pqueue_submit(pqueue, task);
 	
 	if (error)
 		free_task(task);
@@ -29,4 +40,15 @@ int submit_initial_parse_task(
 	EXIT;
 	return error;
 }
+
+
+
+
+
+
+
+
+
+
+
 
