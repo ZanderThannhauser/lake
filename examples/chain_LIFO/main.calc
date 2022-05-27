@@ -1,0 +1,6 @@
+
+include "00.calc"
+
+let main = var_00;
+
+

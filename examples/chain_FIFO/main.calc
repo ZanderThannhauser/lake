@@ -1,0 +1,6 @@
+
+let var_00 = 0;
+
+include "01.calc"
+
+let main = var_99;

@@ -13,11 +13,14 @@ void free_expresssion(struct expression* this)
 {
 	ENTER;
 	
-	assert(this->inheritance->free);
-	
-	(this->inheritance->free)(this);
-	
-	free(this);
+	if (this)
+	{
+		assert(this->inheritance->free);
+		
+		(this->inheritance->free)(this);
+		
+		free(this);
+	}
 	
 	EXIT;
 }

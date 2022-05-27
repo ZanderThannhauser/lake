@@ -1,0 +1,2 @@
+let var_22 = 22 + var_23;
+include "23.calc"

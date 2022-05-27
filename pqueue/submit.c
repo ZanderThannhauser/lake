@@ -30,7 +30,7 @@ int pqueue_submit(struct pqueue* this, struct task* task)
 		
 		tasks[this->n] = task;
 		
-		for (i = this->n; i > 0 && compare_tasks(tasks[i / 2], tasks[i]); i >>= 1)
+		for (i = this->n; i > 0 && compare_tasks(tasks[i / 2], tasks[i]) > 0; i >>= 1)
 		{
 			swap = tasks[i];
 			tasks[i] = tasks[i / 2];

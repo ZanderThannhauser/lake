@@ -16,7 +16,11 @@
 #include "struct.h"
 #include "process.h"
 
-int parse_task_process(struct task* super, struct pqueue* pqueue)
+int parse_task_process(
+	struct task* super,
+	struct pqueue* pqueue,
+	struct scheduler* _,
+	struct scope* scope)
 {
 	int error = 0, fd = -1;
 	char dirpath[PATH_MAX], *slash;

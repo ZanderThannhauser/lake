@@ -1,0 +1,2 @@
+let var_05 = 5 + var_04;
+include "06.calc"

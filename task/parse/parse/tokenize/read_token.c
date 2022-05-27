@@ -122,6 +122,8 @@ static const enum state {
 	[s_start]['a' ... 'z'] = s_reading_identifier,
 	[s_start]['A' ... 'Z'] = s_reading_identifier,
 		[s_reading_identifier][    ANY    ] = s_identifier,
+		[s_reading_identifier][    '_'    ] = s_reading_identifier,
+		[s_reading_identifier]['0' ... '9'] = s_reading_identifier,
 		[s_reading_identifier]['a' ... 'z'] = s_reading_identifier,
 		[s_reading_identifier]['A' ... 'Z'] = s_reading_identifier,
 	

@@ -12,19 +12,35 @@
 
 #include <pqueue/submit.h>
 
+#include <expression/evaluate.h>
+
+#include <scope/declare.h>
+
+#include <scheduler/release.h>
+
 #include "struct.h"
 #include "process.h"
 
-int evaluate_task_process(struct task* super, struct pqueue* pqueue)
+int evaluate_task_process(
+	struct task* super,
+	struct pqueue* pqueue,
+	struct scheduler* scheduler,
+	struct scope* scope)
 {
 	int error = 0;
 	struct evaluate_task* const this = (struct evaluate_task*) super;
 	ENTER;
 	
 	// do the actual evaluation
-	TODO;
+	double value = expression_evaluate(this->expression, scope);
 	
-	if (strequals(this->name, "printme"))
+	dpv(value);
+	
+	error = 0
+		?: scope_declare(scope, this->name, value)
+		?: scheduler_release(scheduler, this->name);
+	
+	if (!error && strequals(this->name, "main"))
 	{
 		struct task* shutdown = NULL;
 		

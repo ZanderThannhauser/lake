@@ -11,5 +11,4 @@ let e = f ** 2;
 
 let d = e / e;
 
-let printme = f;
-
+let main = a;

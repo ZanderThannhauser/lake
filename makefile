@@ -7,7 +7,7 @@ CPPFLAGS += -I .
 CFLAGS += -Wall -Werror -Wfatal-errors
 
 LDLIBS += -pthread -lm
-
+:
 buildtype ?= release
 
 ifeq ($(buildtype), release)
@@ -46,13 +46,16 @@ default: $(buildprefix)/lake
 
 ARGS += -v
 
-ARGS += -j1
+#ARGS += -j1
 #ARGS += -j2
 #ARGS += -j4
-#ARGS += -j8
+ARGS += -j8
 #ARGS += -j16
 
+#ARGS += -i ./examples/burst/main.calc
 ARGS += -i ./examples/easy/main.calc
+#ARGS += -i ./examples/chain_FIFO/main.calc
+#ARGS += -i ./examples/chain_LIFO/main.calc
 
 run: $(buildprefix)/lake
 	$< $(ARGS)

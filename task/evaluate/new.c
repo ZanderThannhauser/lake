@@ -1,5 +1,9 @@
 
+#include <stdlib.h>
+
 #include <debug.h>
+
+#include <memory/sstrdup.h>
 
 #include "../new.h"
 
@@ -13,11 +17,14 @@ int new_evaluate_task(
 	struct expression* expression)
 {
 	int error = 0;
+	char* dup = NULL;
 	ENTER;
 	
 	struct evaluate_task* this;
 	
-	error = new_task(
+	error = 0
+		?: sstrdup(&dup, name)
+		?: new_task(
 		/* this: */ (struct task**) &this,
 		/* kind: */ tk_evaluate,
 		/* inheritance: */ &evaluate_task_inheritance,
@@ -25,11 +32,13 @@ int new_evaluate_task(
 	
 	if (!error)
 	{
-		this->name = name;
+		this->name = dup, dup = NULL;
 		this->expression = expression;
 		
 		*out = (struct task*) this;
 	}
+	
+	free(dup);
 	
 	EXIT;
 	return error;

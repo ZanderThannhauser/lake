@@ -1,0 +1,127 @@
+
+
+include "00.calc"
+include "01.calc"
+include "02.calc"
+include "03.calc"
+include "04.calc"
+include "05.calc"
+include "06.calc"
+include "07.calc"
+include "08.calc"
+include "09.calc"
+include "10.calc"
+include "11.calc"
+include "12.calc"
+include "13.calc"
+include "14.calc"
+include "15.calc"
+include "16.calc"
+include "17.calc"
+include "18.calc"
+include "19.calc"
+include "20.calc"
+include "21.calc"
+include "22.calc"
+include "23.calc"
+include "24.calc"
+include "25.calc"
+include "26.calc"
+include "27.calc"
+include "28.calc"
+include "29.calc"
+include "30.calc"
+include "31.calc"
+include "32.calc"
+include "33.calc"
+include "34.calc"
+include "35.calc"
+include "36.calc"
+include "37.calc"
+include "38.calc"
+include "39.calc"
+include "40.calc"
+include "41.calc"
+include "42.calc"
+include "43.calc"
+include "44.calc"
+include "45.calc"
+include "46.calc"
+include "47.calc"
+include "48.calc"
+include "49.calc"
+include "50.calc"
+include "51.calc"
+include "52.calc"
+include "53.calc"
+include "54.calc"
+include "55.calc"
+include "56.calc"
+include "57.calc"
+include "58.calc"
+include "59.calc"
+include "60.calc"
+include "61.calc"
+include "62.calc"
+include "63.calc"
+include "64.calc"
+include "65.calc"
+include "66.calc"
+include "67.calc"
+include "68.calc"
+include "69.calc"
+include "70.calc"
+include "71.calc"
+include "72.calc"
+include "73.calc"
+include "74.calc"
+include "75.calc"
+include "76.calc"
+include "77.calc"
+include "78.calc"
+include "79.calc"
+include "80.calc"
+include "81.calc"
+include "82.calc"
+include "83.calc"
+include "84.calc"
+include "85.calc"
+include "86.calc"
+include "87.calc"
+include "88.calc"
+include "89.calc"
+include "90.calc"
+include "91.calc"
+include "92.calc"
+include "93.calc"
+include "94.calc"
+include "95.calc"
+include "96.calc"
+include "97.calc"
+include "98.calc"
+include "99.calc"
+
+let main = 0
+	+ var_00 + var_01 + var_02 + var_03 + var_04 + var_05 + var_06 + var_07 + var_08 + var_09
+	+ var_10 + var_11 + var_12 + var_13 + var_14 + var_15 + var_16 + var_17 + var_18 + var_19
+	+ var_20 + var_21 + var_22 + var_23 + var_24 + var_25 + var_26 + var_27 + var_28 + var_29
+	+ var_30 + var_31 + var_32 + var_33 + var_34 + var_35 + var_36 + var_37 + var_38 + var_39
+	+ var_40 + var_41 + var_42 + var_43 + var_44 + var_45 + var_46 + var_47 + var_48 + var_49
+	+ var_50 + var_51 + var_52 + var_53 + var_54 + var_55 + var_56 + var_57 + var_58 + var_59
+	+ var_60 + var_61 + var_62 + var_63 + var_64 + var_65 + var_66 + var_67 + var_68 + var_69
+	+ var_70 + var_71 + var_72 + var_73 + var_74 + var_75 + var_76 + var_77 + var_78 + var_79
+	+ var_80 + var_81 + var_82 + var_83 + var_84 + var_85 + var_86 + var_87 + var_88 + var_89
+	+ var_90 + var_91 + var_92 + var_93 + var_94 + var_95 + var_96 + var_97 + var_98 + var_99;
+
+
+
+
+
+
+
+
+
+
+
+
+

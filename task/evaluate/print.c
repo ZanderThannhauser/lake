@@ -21,7 +21,7 @@ void evaluate_task_print(struct task* super)
 	
 	printf(
 		CSI "38;2;%hhu;%hhu;%hhu" "m" // set 256-bit foreground color
-		"registering dependencices for '%s'..."
+		"evaluating '%s'..."
 		CSI "m", // reset all attributes to their defaults
 		color.red, color.green, color.blue,
 		this->name

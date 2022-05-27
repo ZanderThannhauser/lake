@@ -12,8 +12,6 @@ enum task_kind
 	
 	tk_evaluate,
 	
-	tk_wake_up,
-	
 	number_of_task_kinds,
 };
 

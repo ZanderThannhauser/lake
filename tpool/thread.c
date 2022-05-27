@@ -24,6 +24,10 @@ void* thread(void* x)
 	
 	struct pqueue* const pqueue = args->pqueue;
 	
+	struct scheduler* const scheduler = args->scheduler;
+	
+	struct scope* const scope = args->scope;
+	
 	const unsigned id = args->id;
 	
 	const bool verbose = args->verbose;
@@ -40,13 +44,14 @@ void* thread(void* x)
 			sem_post(print_lock);
 			
 			#ifdef RELEASE
-/*			usleep(500 * 1000);*/
-/*			usleep(2000 * 1000);*/
-/*			usleep(3000 * 1000);*/
+/*			usleep(     100 * 1000);*/
+			usleep(     300 * 1000);
+/*			usleep(     500 * 1000);*/
+/*			usleep(1 * 1000 * 1000);*/
 			#endif
 		}
 		
-		int error = task_process(task, pqueue);
+		int error = task_process(task, pqueue, scheduler, scope);
 		
 		// if there was an error: shutdown.
 		if (error)
